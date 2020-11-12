@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <a href="https://leetcode-cn.com/problems/implement-strstr/">strstr</a>
+    <p>
+      给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的第一个位置 (从0开始)。如果不存在，则返回  -1。
+    </p>
+
+    示例 1:</br>
+
+    输入: haystack = "hello", needle = "ll"</br>
+    输出: 2</br>
+    示例 2:</br>
+
+    输入: haystack = "aaaaa", needle = "bba"</br>
+    输出: -1
+  </div>
+
+  <script>
+    const strStr = (source, target) => {
+      if (target === '') return 0;
+      if (source == null || target == null) return -1;
+      let j
+      for (let i = 0; i < source.length - target.length + 1; i++) {
+        for(j = 0; j < target.length; j++) {
+          if (source[i + j] !== target[j]) {
+            break
+          }
+        }
+        if (j === target.length) {
+          return i
+        }
+      }
+      return -1
+    }
+    console.log(strStr('hello', 'll'))
+    console.log(strStr('aaaaa', 'needle'))
+  </script>
+  <script>
+    
+  </script>
+</body>
+</html>
