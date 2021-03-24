@@ -17,6 +17,8 @@
  * Jump-game 
  * Jump-game-ii
  * palindrome-partitioning-ii
+ * word-break
+ * longest-increasing-subsequence
  */
 
 /**
@@ -81,6 +83,27 @@
  * function: f[i] = min(f[j]+1,j<i && j能够跳到i)
  * intialize: f[0] = 0
  * answer: f[n-1]
+ * 
+ * Palindrome Partitioning ii
+ * state: f[i] "前i"个字符组成的字符串需要最少几次cut(最少能被分割为多少个字符串-1)
+ * function: f[i] = MIN{f[j]+1}, j<i && j+1 ~ i 这一段是一个回文串
+ * intialize: f[i] = i-1(f[0] = 0)
+ * answer: f[s.length]
+ * 
+ * Word Segmentation
+ * state: f[i] 表示前i个字符能否被完美切分
+ * function: f[i] = OR{f[j]}, j<i,j+1 ~ i 是一个词典中的单词
+ * intialize: f[0] = true
+ * answer: f[s.length]
+ *    注意：切分位置的枚举->单词长度枚举
+ *    O(NL),N:字符串长度，L: 最长的单词的长度
+ * 
+ * Longest Increasing Subsequence
+ * state: 错误的方法：f[i] 表示前i个数字中最长的LIS的长度
+ *        正确的方法：f[i] 表示前i个数字中 以第i个结尾的LIS的长度
+ * function: f[i] = MAX{f[j]+1},j<i && a[j] < a[i]
+ * intialize: f[0..n-1] = 1
+ * answer: max(f[0..n-1])
  */
 
 
